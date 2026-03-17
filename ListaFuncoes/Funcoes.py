@@ -1,0 +1,55 @@
+import time 
+import math
+import statistics as st
+import random
+
+# Função para mostra algo na tela 
+# print("")
+
+# Função para ler um dado do usuário
+# input("")
+
+# Tipos de dados
+# int(), float(), str(), bool()
+
+# Funções matemáticas
+#abs() → valor absoluto
+#pow() → potência
+#round() → arredondar número
+#max() → maior valor
+#min() → menor valor
+#sum() → soma de valores
+
+#Manipulação de listas
+#len() → tamanho da lista
+#sorted() → ordenar
+#list() → criar lista
+
+#Iteração
+#range() → criar sequência de números
+#enumerate() → obter índice e valor
+#zip() → juntar listas
+
+#Verificação
+#type() → mostra o tipo da variável
+#isinstance() → verifica tipo
+
+#Manipulação de listas (dados simples)
+#append() → adiciona elemento
+#remove() → remove elemento
+#pop() → remove pelo índice
+#sort() → ordena
+#reverse() → inverte
+#len() → tamanho da lista
+
+#Manipulação de dicionários
+#keys() → retorna as chaves
+#values() → retorna os valores
+#items() → chave + valor
+#get() → pega valor com segurança
+#update() → atualiza dados
+
+#Criação de funções
+# def nome_da_função():
+#     código da função
+#     return resultado
