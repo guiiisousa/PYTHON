@@ -4,14 +4,15 @@ import os
 qn = int(input("Digite a quantidade de notas : "))
 qa = int(input("Digite a quantidade de alunos : "))
 
-boletim = []
+boletim = {}
 
 for i in range(qa):
-    a = str(input("Qual o seu nome ?"))
+    a = (input("Nome do aluno: "))
+    boletim[a] = []
     for j in range(qn):
-        n = float(input(f"Digite a sua {j+1}° nota : "))
-        boletim.append(n)
+        n = float(input(f"Nota do(a) {a}: "))
+        boletim[a].append(n)
 
-for i in range(qa):
-    for j in range(qn):
-        print(f'{boletim}')
+for chave,valor in boletim.items():
+    print(f"{chave}: {valor}")
+    
