@@ -23,6 +23,3 @@ def classificar_imc(imc):
 
 print(f'Seu IMC é: {calcular_imc(p, a):.2f}')
 print(f'Classificação: {classificar_imc(calcular_imc(p, a))}')
-
-
-

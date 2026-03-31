@@ -9,9 +9,7 @@ def Get_history(ticket):
     dados = {}
 
     for fii in fiis:
-        dados[fii] = yf.Ticker(f"{ticket}").history(period="1wk")
+        dados[fii] = yf.Ticker(f"{ticket}").history(period="1d")
         time.sleep(1)
 
     return print(dados[f"{ticket}"].tail())
-
-    
