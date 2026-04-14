@@ -67,3 +67,9 @@ import random
 #         return 1
 #     else:
 #         return fibonacci(n - 1) + fibonacci(n - 2)
+def Media_Harmonica(n):
+    if n <= 0:
+        return 0
+    else:
+        return sum(1 / i for i in range(1, n + 1))
+print(Media_Harmonica(2))
