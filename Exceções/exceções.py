@@ -46,5 +46,4 @@ def Acessar_Chave(dicionario, chave):
     try:
         return dicionario[chave]
     except KeyError:
-        return f"Erro: A chave '{chave}' não existe no dicionário."
-    
+        return f"Erro: A chave '{chave}' não existe no dicionário."  
