@@ -14,6 +14,11 @@ class contador_limitado:
     def limite_inferior(self):
         return self._limite_inferior
     
+    @contador.setter
+    def contador(self, valor):
+        if isinstance(valor,int) and valor > 0:
+            self._contador = valor
+                
     def contador(self, valor):
         if isinstance(valor,int):
             self._contador = valor
