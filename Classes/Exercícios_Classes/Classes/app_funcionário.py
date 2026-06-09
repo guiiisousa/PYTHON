@@ -1,4 +1,4 @@
-from funcionário import funcionário
+from Classes.Exercícios_Classes.Herança.funcionário import funcionário
 
 n = input("Digite o nome do funcionário: ")
 c = int(input("Digite o código do funcionário: "))

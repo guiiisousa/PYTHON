@@ -1,4 +1,4 @@
-from contador_limitado import ContadorLimitado
+from Classes.Exercícios_Classes.Herança.contador_limitado import ContadorLimitado
 
 li = int(input("Digite o limite inferior do contador: "))
 ls = int(input("Digite o limite superior do contador: "))

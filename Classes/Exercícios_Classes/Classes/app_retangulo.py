@@ -1,4 +1,4 @@
-from retangulo import retangulo
+from Classes.Exercícios_Classes.Herança.retangulo import retangulo
 
 b = int(input("Digite a base do retângulo: "))
 a = int(input("Digite a altura do retângulo: "))

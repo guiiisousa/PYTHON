@@ -4,7 +4,7 @@ if __name__ == "__main__":
 
     if p == "1":
 
-        import compras as compras
+        import RevisãoProva.compras as compras
 
         carrinho = {}
         i = 1
@@ -35,7 +35,7 @@ if __name__ == "__main__":
                     compras.Verificar_produto(carrinho, n)
     if p == "2":
 
-        import alunos as alunos
+        import RevisãoProva.alunos as alunos
 
         notas = {}
         boletim = []

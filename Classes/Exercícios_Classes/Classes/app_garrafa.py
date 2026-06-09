@@ -1,4 +1,4 @@
-from garrafa import garrafa
+from Classes.Exercícios_Classes.Herança.garrafa import garrafa
 
 c = int(input("Digite a capacidade da garrafa: "))
 g = garrafa(c)
