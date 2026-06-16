@@ -16,7 +16,7 @@ class Pessoa:
         return self._idade
 
 
-    def apresentar(self):
+    def __str__(self):
         print(f"{self._nome} tem {self._idade} anos")
 
 class Aluno(Pessoa):
