@@ -39,24 +39,18 @@ class Empregado:
     def __str__(self):
         return (f'Nome: {self._nome}\nSobrenome: {self._sobrenome}\nNúmero de ID: {self._numero_id}')
     
-    def desconto(self, valor):
-        if isinstance(valor,(float)):
-            return 1 - valor/100
-        else:
-            return "Digite um numero float"
-    def rendimento(self,valor1,valor2):
-            return valor1 * valor2
+    def desconto(self, valor : float):
+            return valor/100
+    def rendimento(self):
+            return 
         
 class EmpregadoComissionado(Empregado):
     def __init__(self,nome,sobrenome,numero_id,salario_base=0,comissao=0,quantidade_vendida=0):
         super().__init__(nome,sobrenome,numero_id)
         
-        if isinstance(salario_base,(float)) and isinstance(comissao, (float)):
-            self._salario_base = salario_base
-            self._comissao = comissao
-            
-        if isinstance(quantidade_vendida,(int)):        
-            self._quantidade_vendida = quantidade_vendida
+        self._salario_base = salario_base
+        self._comissao = comissao     
+        self._quantidade_vendida = quantidade_vendida
             
     @property
     def salario_base(self):
@@ -72,17 +66,17 @@ class EmpregadoComissionado(Empregado):
     
     def __str__(self):
         base = super().__str__()
-        salario_liquido = self._salario_base + self.rendimento(self._comissao, self._quantidade_vendida)
+        salario_liquido = self._salario_base + self.rendimento()
         desconto = self.desconto(8)
         salario_bruto = salario_liquido - desconto
         
         return f'{base}\nSalario Base: R${self._salario_base:.2f}\nComissao: {self._comissao}\nQuantidade Vendida: {self._quantidade_vendida}\nSalário Líquido: R${salario_liquido:.2f}\nDesconto: R${desconto:.2f}\nSalario Bruto: R${salario_bruto:.2f}'    
     
-    def desconto(self, valor):
-        return self.rendimento() * self.desconto(valor)
+    def desconto(self, valor : float):
+        return self.rendimento() * super().desconto(valor)
     
-    def rendimento(self, comissao, quantidade):
-        return super().rendimento(comissao, quantidade)
+    def rendimento(self):
+        return self._comissao * self._quantidade_vendida
     
 class EmpregadoProducao(Empregado):
     def __init__(self, nome, sobrenome, numero_id, remuneracao_por_peca = 0, quantidade = 0):
@@ -108,10 +102,7 @@ class EmpregadoProducao(Empregado):
         return f'{base}\nRemuneração por peça: {self._remuneracao_por_peca}\n Quantidade de itens: {self._quantidade}\nRendimentos: {salario_liquido}\nDesconto: {desconto}\nSalario Bruto: {salario_bruto}'
         
         
+# e = Empregado("João", "Silva", 12345)
+# ec = EmpregadoComissionado("Maria", "Souza", 67890, 2000.0, 100.0, 10)
 
-e = Empregado("Guilherme", "Sousa", 1)
-print(e)
-
-ec = EmpregadoComissionado(e,1200,5,20)
-
-print(ec)
+# print(ec.__str__())
