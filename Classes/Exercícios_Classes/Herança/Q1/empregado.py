@@ -79,29 +79,43 @@ class EmpregadoComissionado(Empregado):
         return self._comissao * self._quantidade_vendida
     
 class EmpregadoProducao(Empregado):
-    def __init__(self, nome, sobrenome, numero_id, remuneracao_por_peca = 0, quantidade = 0):
+    def __init__(self, nome, sobrenome, numero_id,
+                 remuneracao_por_peca=0.0, quantidade=0):
+
         super().__init__(nome, sobrenome, numero_id)
-        
-        if isinstance(remuneracao_por_peca,(float)):
-            self._remuneracao_por_peca = remuneracao_por_peca
-            
-        if isinstance(quantidade,(int)):
-            self._quantidade = quantidade
-            
+
+        self._remuneracao_por_peca = remuneracao_por_peca
+        self._quantidade = quantidade
+
+    @property
+    def remuneracao_por_peca(self):
+        return self._remuneracao_por_peca
+
+    @property
+    def quantidade(self):
+        return self._quantidade
+
+    def rendimento(self):
+        return self._quantidade * self._remuneracao_por_peca
+
     def desconto(self, valor):
-        return self._rendimento() * super().desconto(valor)
-            
-    def rendimento(self, quantidade, remuneracao_por_peca):
-        return quantidade * remuneracao_por_peca
-        
+        return self.rendimento() * super().desconto(valor)
+
     def __str__(self):
         base = super().__str__()
+
+        salario_liquido = self.rendimento()
         desconto = self.desconto(5)
-        salario_liquido = self.rendimento(self._remuneracao_por_peca, self._quantidade)
         salario_bruto = salario_liquido - desconto
-        return f'{base}\nRemuneração por peça: {self._remuneracao_por_peca}\n Quantidade de itens: {self._quantidade}\nRendimentos: {salario_liquido}\nDesconto: {desconto}\nSalario Bruto: {salario_bruto}'
-        
-        
+
+        return (
+            f"{base}\n"
+            f"Remuneração por peça: R${self._remuneracao_por_peca:.2f}\n"
+            f"Quantidade produzida: {self._quantidade}\n"
+            f"Salário Líquido: R${salario_liquido:.2f}\n"
+            f"Desconto: R${desconto:.2f}\n"
+            f"Salário Bruto: R${salario_bruto:.2f}"
+        )
 # e = Empregado("João", "Silva", 12345)
 # ec = EmpregadoComissionado("Maria", "Souza", 67890, 2000.0, 100.0, 10)
 

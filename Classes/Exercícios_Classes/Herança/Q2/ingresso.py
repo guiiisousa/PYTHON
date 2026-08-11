@@ -8,7 +8,7 @@ class Ingresso():
     def valor(self):
         return self._valor
 
-    def getTipoIngresso(valor):
+    def getTipoIngresso(self,valor):
         if valor == "IngressoNormal":
             return "Ingresso Normal"
         
@@ -44,11 +44,3 @@ class IngressoNormal(Ingresso):
     def getTipoIngresso(self):
         return super().getTipoIngresso(IngressoNormal)
     
-i = Ingresso(10, "Rock In Rio")
-print(i.toString())
-
-iV = IngressoVip(10, "Eu", 67.67)
-print(iV.toString())
-
-iN = IngressoNormal(10, "Lollapaloza")
-print(iN.toString())

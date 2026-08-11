@@ -1,7 +1,3 @@
-import Departamento
-import Gerente
-import Desenvolvedor
-
 class Funcionario:
     def __init__(self, nome, salario_base):
         self.nome = nome
@@ -11,7 +7,7 @@ class Funcionario:
     def calcular_salario(self):
         return self._salario_base
 
-    @salario_base.setter
+    
     def salario_base(self, valor):
         if valor < 0:
             raise ValueError("O salário base não pode ser negativo.")

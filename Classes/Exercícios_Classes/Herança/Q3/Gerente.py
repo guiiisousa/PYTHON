@@ -1,8 +1,6 @@
-import Funcionario
-import Departamento
-import Desenvolvedor
+import Funcionario as funcionario
 
-class Gerente(Funcionario):
+class Gerente(funcionario.Funcionario):
     def __init__(self, nome, salario_base, bonus_fixo=1500.0):
         super().__init__(nome, salario_base)  
         self.bonus_fixo = bonus_fixo

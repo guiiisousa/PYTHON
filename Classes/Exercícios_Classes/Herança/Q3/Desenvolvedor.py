@@ -1,6 +1,4 @@
-import Funcionario
-import Departamento
-import Gerente
+from Funcionario import Funcionario
 
 class Desenvolvedor(Funcionario):
     def __init__(self, nome, salario_base, horas_extras, valor_hora):

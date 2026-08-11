@@ -1,6 +1,4 @@
-import Funcionario
-import Gerente
-import Desenvolvedor
+from Funcionario import Funcionario
 
 class Departamento:
     def __init__(self, nome):

@@ -1,50 +1,72 @@
-import Funcionario
-import Gerente
-import Desenvolvedor
-import Departamento
+from Funcionario import Funcionario
+from Gerente import Gerente
+from Desenvolvedor import Desenvolvedor
+from Departamento import Departamento
+
 
 if __name__ == "__main__":
+
     try:
+
         d = input("Você deseja criar um departamento? (s/n): ").strip().lower()
 
-        if d == 's':
+        if d == "s":
+
             n = input("Digite o nome do departamento: ")
-            departamento = Departamento.Departamento(n)
+            departamento = Departamento(n)
 
             while True:
-                f = input("Você deseja adicionar um funcionário? (s/n): ").strip().lower()
-                if f == 's':
-                    nf = input("Qual o nome do funcionário?")
-                    sb = float(input("Qual o salário base?"))
-            
-                    funcionario = Funcionario(nf,sb)
 
-                    cf = input("Qual o cargo do funcionário? ( Gerente-G / Desenvolvedor-D / Normal-N)").strip().lower()
+                f = input("Você deseja adicionar um funcionário? (s/n): ").strip().lower()
+
+                if f == "s":
+
+                    nf = input("Qual o nome do funcionário? ")
+                    sb = float(input("Qual o salário base? "))
+                    cf = input(
+                        "Qual o cargo do funcionário? (Gerente-G / Desenvolvedor-D / Normal-N): ").strip().lower()
 
                     if cf == "g":
-                        gerente = Gerente(funcionario)
+                        bonus = float(input("Qual o bônus do gerente? "))
+                        gerente = Gerente(nf, sb, bonus)
                         departamento.adicionar_funcionario(gerente)
-                    
-                    if cf == "d":
-                        he = int(input("Quantas horas extras?"))
-                        vh = float(input("Qual o valor da hora extra?"))
-                        desenvolvedor = Desenvolvedor(he, vh)
+                        print("Gerente adicionado!")
+
+                    elif cf == "d":
+                        he = int(input("Quantas horas extras? "))
+                        vh = float(input("Qual o valor da hora extra? "))
+                        desenvolvedor = Desenvolvedor(nf,sb,he,vh)
                         departamento.adicionar_funcionario(desenvolvedor)
+                        print("Desenvolvedor adicionado!")
 
-                    if cf == "n":
+                    elif cf == "n":
+                        funcionario = Funcionario(nf,sb)
                         departamento.adicionar_funcionario(funcionario)
+                        print("Funcionário adicionado!")
 
-                if  f == 'n':
-                    df = input("Deseja calcular o salário total do departamento (S), ver todos os funcionários (V) ou sair (Q)?").strip().lower()
-                    
-                    if df == 's':
-                        print(f"Salário total do departamento {departamento.nome}: R$ {departamento.calcular_salario_total():.2f}")
-                    if df == 'v':
-                        print(f"Funcionários do departamento {departamento.nome}:")
-                        for funcionario in departamento.funcionarios:
-                            print(f"- {funcionario.nome} (Salário: R$ {funcionario.calcular_salario():.2f})")
-                    if df == 'q':
-                        break
-    except Exception as e:
-        if isinstance(e, ValueError):
-            print(f"Ocorreu um erro de valor: {e}")
+                    else:
+                        print("Cargo inválido.")
+
+                elif f == "n":
+                    break
+
+                else:
+                    print("Digite apenas 's' ou 'n'.")
+
+            while True:
+
+                df = input("\nDeseja calcular o salário total (S), ver funcionários (V) ou sair (Q)? ").strip().lower()
+
+                if df == "s":
+                    print(f"Salário total do departamento "f"{departamento.nome}: "f"R$ {departamento.calcular_salario_total():.2f}")
+                elif df == "v":
+                    print(departamento)
+                elif df == "q":
+                    print("Programa encerrado.")
+                    break
+                else:
+                    print("Opção inválida.")
+
+    except ValueError as e:
+
+        print(f"Ocorreu um erro de valor: {e}")
